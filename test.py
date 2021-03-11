@@ -1,1 +1,0 @@
-print("damedane dameyo dame nano you")
