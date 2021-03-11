@@ -1,2 +1,5 @@
-a,b,c=10,'hello',3.1
-print(f'{a}{b}{c}')
+a=10
+b='hello'
+c=3.1
+
+print(str(a) + b + str(c))
