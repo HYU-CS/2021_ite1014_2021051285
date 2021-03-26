@@ -9,7 +9,7 @@ def printStarDia(n):
             else:
                 print(" ", end="")
 
-        print("")
+        print()
     
     for i in range(n, 0, -1):
         for j in range(n, i, -1):
@@ -21,6 +21,6 @@ def printStarDia(n):
             else:
                 print(" ", end="")
 
-        print("")
+        print()
 
 printStarDia(int(input()))
