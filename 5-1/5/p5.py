@@ -1,7 +1,7 @@
 import random
 
-def getRandomString(length):
-    return ''.join([chr(random.randint(ord('a'), ord('z'))) for _ in range(length)])
+def getRandomString(leng):
+    return ''.join([chr(random.randint(ord('a'), ord('z'))) for _ in range(leng)])
 
 str = getRandomString(int(input('Input the length of the string : ')))
 mutatedStr = str
