@@ -1,33 +1,42 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "cppbuild",
-            "label": "Build with Correct encoding",
-            "command": "cmd",
-            "args": [
-                "/c",
-                "chcp",
-                "65001",
-                ">nul",
-                "&&",
-                "cl.exe",
-                "/utf-8",
-                "/Zi",
-                "/EHsc",
-                "/nologo",
-                "/Fe:",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": [
-                "$msCompile"
-            ],
-            "group": "build",
-            "detail": "Build with Correct encoding"
-        }
-    ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Build with Correct encoding",
+			"command": "%BUILD%",
+			"args": [
+				"/Zi",
+				"/EHsc",
+				"/nologo",
+				"/Fe:",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${file}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+					"PATH": "${env:PATH};C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\Common7\\Tools",
+            		"BUILD": "cmd /c chcp 65001 >nul && VsDevCmd.bat >nul && cl.exe"
+				}
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "c 또는 cpp 파일 빌드"
+		},
+		{
+			"label": "C/C++: 활성 파일 실행",
+			"command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"detail": "빌드된 exe 파일 실행"
+		}
+	]
 }
