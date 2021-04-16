@@ -30,5 +30,5 @@ int main()
         }
     }
 
-    printf("exit");
+    printf("exit\n");
 }
