@@ -9,6 +9,3 @@ def combination(n, r):
 inputList = input().split()
 
 print(combination(int(inputList[0]), int(inputList[1])))
-
-
-
