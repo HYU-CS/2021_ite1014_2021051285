@@ -6,9 +6,9 @@ def combination(n, r):
     else:
         return combination(n - 1, r - 1) + combination(n - 1, r)
 
-inputList = list(map(int, input().split()))
+inputList = input().split()
 
-print(combination(inputList[0], inputList[1]))
+print(combination(int(inputList[0]), int(inputList[1])))
 
 
 
