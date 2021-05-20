@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-typedef struct
+struct Person
 {
     char name[12];
     int age;
-} Person;
+};
 
 int main(void)
 {
-    Person person;
+    struct Person person;
 
     scanf("%s%d", person.name, &person.age);
 
