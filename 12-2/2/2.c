@@ -6,7 +6,7 @@ typedef struct
     int score;
 } Person;
 
-void printScoreStarts(const Person* persons, int len);
+void printScoreStars(const Person* persons, int len);
 
 int main(void)
 {
@@ -17,12 +17,12 @@ int main(void)
         scanf("%s%d", person_arr[i].name, &person_arr[i].score);
     }
 
-    printScoreStarts(person_arr, 3);
+    printScoreStars(person_arr, 3);
 
     return 0;
 }
 
-void printScoreStarts(const Person* persons, int len)
+void printScoreStars(const Person* persons, int len)
 {
     for(int i = 0; i < len; i++)
     {
