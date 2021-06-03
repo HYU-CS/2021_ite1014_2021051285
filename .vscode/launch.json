@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "cl.exe - 활성 파일 빌드 및 디버그",
+            "name": "Build and Run without ASAN",
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
@@ -14,7 +14,20 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "console": "externalTerminal",
-            "preLaunchTask": "Build with Correct encoding",
+            "preLaunchTask": "Build without ASAN:C/C++",
+            "symbolSearchPath":"https://msdl.microsoft.com/download/symbols"
+        },
+        {
+            "name": "Build and Run with ASAN",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "externalTerminal",
+            "preLaunchTask": "Build with ASAN:C/C++",
             "symbolSearchPath":"https://msdl.microsoft.com/download/symbols"
         }
     ]

@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "Build Without ASAN:C/C++",
+			"label": "Build without ASAN:C/C++",
 			"command": "%BUILD%",
 			"args": [
 				"/Zi",
