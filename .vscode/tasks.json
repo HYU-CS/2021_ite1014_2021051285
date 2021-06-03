@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "Build with Correct encoding",
+			"label": "Build Without ASAN:C/C++",
 			"command": "%BUILD%",
 			"args": [
 				"/Zi",
@@ -27,16 +27,46 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "c 또는 cpp 파일 빌드"
+			"detail": "BUILD WITHOUT ASAN"
 		},
 		{
-			"label": "C/C++: 활성 파일 실행",
+			"type": "cppbuild",
+			"label": "Build with ASAN:C/C++",
+			"command": "%BUILD%",
+			"args": [
+				"/fsanitize=address",
+				"/O1",
+				"/Zi",
+				"/EHsc",
+				"/nologo",
+				"/Fe:",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${file}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+					"PATH": "${env:PATH};C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\Common7\\Tools",
+            		"BUILD": "cmd /c chcp 65001 >nul && VsDevCmd.bat -arch=x64 >nul && cl.exe"
+				}
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "BUILD WITH ASAN"
+		},
+		{
+			"label": "Execute:C/C++",
 			"command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
 			"group": {
 				"kind": "test",
 				"isDefault": true
 			},
-			"detail": "빌드된 exe 파일 실행"
+			"detail": "EXECUTE"
 		}
 	]
 }
