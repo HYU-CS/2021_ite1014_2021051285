@@ -35,7 +35,7 @@
 			"command": "%BUILD%",
 			"args": [
 				"/fsanitize=address",
-				"/O1",
+				"/Od",
 				"/Zi",
 				"/EHsc",
 				"/nologo",
@@ -53,10 +53,7 @@
 			"problemMatcher": [
 				"$msCompile"
 			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
+			"group": "build",
 			"detail": "BUILD WITH ASAN"
 		},
 		{

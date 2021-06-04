@@ -1,0 +1,28 @@
+// 오류 #1
+길이가 len인 메모리를 할당받았을 때 가능한 인덱스는 [0] 부터 [len - 1] 까지입니다. 따라서 [len]에 접근하면 undefined-behavior가 발생합니다. (heap-buffer-overflow)
+for (i = 1; i <= 3; i++)
+    intArr[i] = i;
+
+// 해결 #1
+for (i = 0; i < arrLen; i++)
+    intArr[i] = i;
+
+
+// 단서 #2
+char* charArr1 = (char*)allocatePtr(sizeof(char) * arrLen);
+이미 2개가 할당되어있으므로 기존에 할당받은 모든 메모리는 해제되었습니다. 따라서 intArr과 doubleArr을 dereference 하면 undefined-behavior가 발생합니다.
+
+// 오류 #2
+위에서 설명한 대로 doubleArr은 이미 deallocate 된 메모리 주소를 가리키고 있으므로 dereference하면 undefined-behavior가 발생합니다. (heap-use-after-free)
+for (i = 0; i < arrLen; i++)
+    printf("%lf ", doubleArr[i]);
+
+
+// 단서 #3
+char* charArr3 = (char*)allocatePtr(sizeof(char) * arrLen);
+이미 2개가 할당되어있으므로 기존에 할당받은 모든 메모리는 해제되었습니다. 따라서 charArr1과 charArr2을 deallocate 하면 undefined-behavior가 발생합니다.
+
+// 오류 #3
+이미 deallocate 된 메모리 주소를 다시 deallocate 하면 undefined-behavior가 발생합니다. (double-free)
+free(charArr1);
+free(charArr2);
