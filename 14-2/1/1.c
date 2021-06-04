@@ -4,7 +4,7 @@
 
 typedef struct
 {
-    char name[12];
+    char name[7];
     int score;
 } Person;
 
@@ -17,14 +17,19 @@ int main(void)
 
     while(1)
     {
-        char name[12];
-        int score;
+        char name[7];
+        int score = 0;
 
         scanf("%s%d", name, &score);
 
         if(strcmp(name, "END") != 0 || score != 0)
         {
             Person *temp = (Person *)malloc(sizeof(Person) * (len + 1)); // [0] to [len]
+            if(temp == NULL)
+            {
+                printf("Out of Memory! Heap Space\n");
+                return -1;
+            }
 
             for(int i = 0; i < len; i++) // copy from [0] to [len - 1]
             {
