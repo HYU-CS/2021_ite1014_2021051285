@@ -17,7 +17,7 @@
 				"cwd": "${workspaceFolder}",
 				"env": {
 					"PATH": "${env:PATH};C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\Common7\\Tools",
-            		"BUILD": "cmd /c chcp 65001 >nul && VsDevCmd.bat -arch=x64 >nul && cl.exe"
+					"BUILD": "cmd /c chcp 65001 >nul && VsDevCmd.bat -arch=x64 >nul && cl.exe"
 				}
 			},
 			"problemMatcher": [
@@ -47,7 +47,7 @@
 				"cwd": "${workspaceFolder}",
 				"env": {
 					"PATH": "${env:PATH};C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\Common7\\Tools",
-            		"BUILD": "cmd /c chcp 65001 >nul && VsDevCmd.bat -arch=x64 >nul && cl.exe"
+					"BUILD": "cmd /c chcp 65001 >nul && VsDevCmd.bat -arch=x64 >nul && cl.exe"
 				}
 			},
 			"problemMatcher": [
@@ -64,6 +64,29 @@
 				"isDefault": true
 			},
 			"detail": "EXECUTE"
+		},
+		{
+			"label": "MAKE-gw32:C/C++",
+			"type": "shell",
+			"command": "make",
+			"args": [
+				"${input:makeTarget}"
+			],
+			"options":{
+				"cwd": "${fileDirname}"
+			},
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			]
 		}
+	],
+	"inputs": [
+	  {
+		"type": "promptString",
+		"id": "makeTarget",
+		"description": "What target do you want to make?",
+		"default": "run"
+	  }
 	]
 }
